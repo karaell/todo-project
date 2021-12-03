@@ -1,9 +1,8 @@
-import {PRIORITY_BLOCKS} from './view.js';
-import {ADD} from './view.js';
+import {PRIORITY_BLOCKS, ADD} from './view.js';
 
 for (let i = 0; i < ADD.BTNS.length; i++) {
 	ADD.BTNS[i].addEventListener ('click', function () {
-  	let AddContent = ADD.INPUTS[i].value;
+  	let AddContent = ADD.INPUTS[i].value.trim();
 
     if (!AddContent) {
       alert( "Ой, а почему тут пусто?");
@@ -16,7 +15,7 @@ for (let i = 0; i < ADD.BTNS.length; i++) {
         <input class="input-done" type="checkbox"> 
         <span class="cursor"></span>
       </label>
-      <span class="task-text" > ${AddContent} </span>
+      <span class="task-text" > ${ADD.INPUTS[i].value} </span>
       <button class="btn-delete"> <img src="./img/delete-task-icon.svg" alt="-"> </button>`	
     PRIORITY_BLOCKS[i].append(DIV);
 
