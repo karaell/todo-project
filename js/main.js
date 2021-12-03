@@ -1,20 +1,26 @@
-const PRIORITY_BLOCKS = document.querySelectorAll(".todo__priority-block");
-const ADD_INPUTS = document.querySelectorAll(".input-add");
-const ADD_BTNS = document.querySelectorAll(".btn-add");
+import {PRIORITY_BLOCKS} from './view.js';
+import {ADD} from './view.js';
 
-for (let i = 0; i < ADD_BTNS.length; i++) {
-	ADD_BTNS[i].addEventListener ('click', function () {
-  	const DIV = document.createElement('div');
+for (let i = 0; i < ADD.BTNS.length; i++) {
+	ADD.BTNS[i].addEventListener ('click', function () {
+  	let AddContent = ADD.INPUTS[i].value;
+
+    if (!AddContent) {
+      alert( "Ой, а почему тут пусто?");
+      return;
+    }
+    
+    const DIV = document.createElement('div');
     DIV.className = 'todo__task';
     DIV.innerHTML = `<label> 
         <input class="input-done" type="checkbox"> 
         <span class="cursor"></span>
       </label>
-      <span class="task-text" > ${ADD_INPUTS[i].value} </span>
+      <span class="task-text" > ${AddContent} </span>
       <button class="btn-delete"> <img src="./img/delete-task-icon.svg" alt="-"> </button>`	
     PRIORITY_BLOCKS[i].append(DIV);
-    
-    ADD_INPUTS[i].value = '';
+
+    ADD.INPUTS[i].value = '';
     
     DIV.querySelector('.input-done').addEventListener('click', changeColor);
     DIV.querySelector('.btn-delete').addEventListener('click', deleteTask); 
@@ -24,13 +30,7 @@ for (let i = 0; i < ADD_BTNS.length; i++) {
 
 function changeColor () {
   let task = this.parentElement.parentElement;
-  let classExist = task.classList.contains('done');
-
-  if ( classExist ) { 
-    task.classList.remove('done') 
-  } else {  
-    task.classList.add('done') 
-  } 
+  task.classList.toggle('done');
 }
 
 function deleteTask () {
