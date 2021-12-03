@@ -25,20 +25,12 @@ for (let i = 0; i < ADD_BTNS.length; i++) {
     deleteBtns = document.querySelectorAll(".btn-delete");
     checkboxDone = document.querySelectorAll(".input-done"); 
     
-    for (let checkbox of checkboxDone) {
-      checkbox.addEventListener('click', changeColor)
-    }
-
-    for (let deleteBtn of deleteBtns) {
-      deleteBtn.addEventListener('click', deleteTask)
-    }
-    
+    DIV.querySelector('.input-done').addEventListener('click', changeColor);
+    DIV.querySelector('.btn-delete').addEventListener('click', deleteTask); 
   })
 }
 
-for (let checkbox of checkboxDone) {
-  checkbox.addEventListener('click', changeColor)
-}
+
 function changeColor () {
   let task = this.parentElement.parentElement;
   let classExist = task.classList.contains('done');
@@ -50,9 +42,6 @@ function changeColor () {
   } 
 }
 
-for (let deleteBtn of deleteBtns) {
-  deleteBtn.addEventListener('click', deleteTask)
-}
 function deleteTask () {
   let task = this.parentElement;
   task.remove()
