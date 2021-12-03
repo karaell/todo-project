@@ -2,11 +2,6 @@ const PRIORITY_BLOCKS = document.querySelectorAll(".todo__priority-block");
 const ADD_INPUTS = document.querySelectorAll(".input-add");
 const ADD_BTNS = document.querySelectorAll(".btn-add");
 
-let tasks = document.querySelectorAll(".todo__task");
-let deleteBtns = document.querySelectorAll(".btn-delete");
-let checkboxDone = document.querySelectorAll(".input-done"); 
-
-
 for (let i = 0; i < ADD_BTNS.length; i++) {
 	ADD_BTNS[i].addEventListener ('click', function () {
   	const DIV = document.createElement('div');
@@ -20,10 +15,6 @@ for (let i = 0; i < ADD_BTNS.length; i++) {
     PRIORITY_BLOCKS[i].append(DIV);
     
     ADD_INPUTS[i].value = '';
-    
-    tasks = document.querySelectorAll(".todo__task");
-    deleteBtns = document.querySelectorAll(".btn-delete");
-    checkboxDone = document.querySelectorAll(".input-done"); 
     
     DIV.querySelector('.input-done').addEventListener('click', changeColor);
     DIV.querySelector('.btn-delete').addEventListener('click', deleteTask); 
