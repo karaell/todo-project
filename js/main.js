@@ -2,9 +2,9 @@ import {PRIORITY_BLOCKS, ADD} from './view.js';
 
 for (let i = 0; i < ADD.BTNS.length; i++) {
 	ADD.BTNS[i].addEventListener ('click', function () {
-  	let AddContent = ADD.INPUTS[i].value.trim();
+  	let isAddContent = ADD.INPUTS[i].value.trim();
 
-    if (!AddContent) {
+    if (!isAddContent) {
       alert( "Ой, а почему тут пусто?");
       return;
     }
@@ -34,7 +34,7 @@ function changeColor () {
 
 function deleteTask () {
   let task = this.parentElement;
-  task.remove()
+  task.remove();
 }
 
 
