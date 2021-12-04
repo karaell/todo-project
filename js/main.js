@@ -2,9 +2,9 @@ import {PRIORITY_BLOCKS, ADD} from './view.js';
 
 for (let i = 0; i < ADD.BTNS.length; i++) {
 	ADD.BTNS[i].addEventListener ('click', function () {
-  	let isAddContent = ADD.INPUTS[i].value.trim();
+  	let isContentExist = ADD.INPUTS[i].value.trim();
 
-    if (!isAddContent) {
+    if (!isContentExist) {
       alert( "Ой, а почему тут пусто?");
       return;
     }
